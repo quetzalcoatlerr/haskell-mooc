@@ -127,4 +127,7 @@ power = todo
 --   ilog3 7 ==> 2
 
 ilog3 :: Integer -> Integer
-ilog3 = todo
+ilog3 0 = 0
+ilog3 1 = 1
+ilog3 n = 1 + ilog3 (step n)
+    where step x = div x 3
