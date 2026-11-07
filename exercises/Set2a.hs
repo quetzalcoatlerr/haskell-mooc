@@ -46,7 +46,10 @@ takeFinal n xs = todo
 --   updateAt 2 0 [4,5,6,7] ==>  [4,5,0,7]
 
 updateAt :: Int -> a -> [a] -> [a]
-updateAt i x xs = todo
+updateAt i x xs 
+    | i == 0 = x ++ tail xs
+    | i == (length xs) - 1 = (init xs) (++) x
+    | otherwise = take i xs (++) x ++ drop (i+1) xs
 
 ------------------------------------------------------------------------------
 -- Ex 4: substring i j s should return the substring of s starting at
